@@ -29,6 +29,7 @@ def server_root() -> str:
     with open(ROOT_INDEX, 'r', encoding='utf-8') as f_:
         return f_.read()
 
+
 ''' =====----- MAIN -----===== '''
 
 if __name__ == '__main__':
