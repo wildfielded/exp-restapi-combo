@@ -1,12 +1,20 @@
 #!/usr/bin/python3
 
+from bottle import Bottle, HTTPError, request, run
+
+import api_srv as api_
+
+
 ''' =====----- Global variables -----====='''
 
+app = Bottle()
 # Корневой index.html
 ROOT_INDEX = 'adds_srv/index.html'
 
+
 ''' =====----- Server resources -----===== '''
 
+@app.route('/', method='GET')
 def server_root() -> str:
     ''' Аналог index.html в ServerRoot для начальной страницы
     Returns:
