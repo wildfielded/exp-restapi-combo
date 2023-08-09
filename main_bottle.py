@@ -2,7 +2,7 @@
 
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
-config_path = os.path.join(current_dir, 'swagger_conf/swagger.yaml')
+swagger_config_path = os.path.join(current_dir, 'swagger_conf/swagger.yaml')
 
 from bottle import Bottle, HTTPError, request, run
 from swagger_ui import bottle_api_doc
@@ -30,5 +30,17 @@ def server_root() -> str:
         return f_.read()
 
 ''' =====----- MAIN -----===== '''
+
+if __name__ == '__main__':
+    bottle_api_doc(app,
+                   config_path=swagger_config_path,
+                   url_prefix='/api/doc',
+                   title='Swagger docs'
+                  )
+    run(app,
+        host='0.0.0.0',
+        port=8080,
+        debug=True
+       )
 
 #####=====----- THE END -----=====#########################################
