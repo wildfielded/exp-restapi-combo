@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(current_dir, 'swagger_conf/swagger.yaml')
+
 from bottle import Bottle, HTTPError, request, run
+from swagger_ui import bottle_api_doc
 
 import api_srv as api_
 
