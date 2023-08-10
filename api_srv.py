@@ -17,6 +17,7 @@ ENGINE = sa.create_engine(DB_PATH)
 class User(Base):
     __tablename__ = 'Users'
     uid = sa.Column(sa.String(36), primary_key=True)
+    admin = sa.Column(sa.Boolean)
     name = sa.Column(sa.String(1024))
     login = sa.Column(sa.String(1024))
     password = sa.Column(sa.String(1024))
