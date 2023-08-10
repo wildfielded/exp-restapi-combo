@@ -30,6 +30,13 @@ def server_root() -> str:
         return f_.read()
 
 
+@app.route('bottle/auth/login', method='POST')
+def login_post() -> dict:
+    ''' Аутентификация на сервере
+    '''
+    return api_.login_post(request.json)
+
+
 ''' =====----- MAIN -----===== '''
 
 if __name__ == '__main__':

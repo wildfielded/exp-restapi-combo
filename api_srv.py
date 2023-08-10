@@ -42,6 +42,16 @@ class User(Base):
 ''' =====----- API Methods -----===== '''
 
 def login_post(credentials: dict) -> dict:
+    ''' Метод для аутентификации на сервере. При логине пользователя
+    записывает ему в таблицу "Users" выданные access-token и refresh-token
+    и время окончания их действия "acc_expired" и "ref_expired".
+    Arguments:
+        credentials [dict] -- Словарь/json с ключами "login", "password"
+    Returns:
+        [dict] -- Словарь/json с ключами "status", "text", "acc_token",
+            "acc_expired", "ref_token", "ref_expired"
+            или с ключами "status", "text" в случае ошибки
+    '''
     output_dict_ = {'status': 'fail',
                     'text': 'Unknown request'
                    }
