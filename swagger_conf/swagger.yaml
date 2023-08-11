@@ -12,7 +12,7 @@ tags:
     description: default tag
 
 paths:
-  /srv1/auth/login:
+  /bottle/auth/login:
     post:
       summary: User login
       parameters:
@@ -34,77 +34,4 @@ paths:
               {
               status: "success",
               text: "User user_login: logged in"
-              }
-
-  /srv1/admin/adduser:
-    post:
-      summary: Add new user
-      parameters:
-        - name: req_data
-          required: True
-          description: JSON Web Token
-      produces:
-        - application/text
-      responses:
-        '200':
-          description: OK
-          schema:
-            example: |
-              {
-              status: "success",
-              text: "User user_login: added"
-              }
-
-  /srv1/abon/all:
-    get:
-      summary: Show all abonents in database
-      parameters:
-        - name: req_data
-          required: True
-          description: JSON Web Token
-      produces:
-        - application/text
-      responses:
-        '200':
-          description: OK
-          schema:
-            example: |
-              {
-              status: 'success',
-              text: 'Authorized request',
-              all_abon: {...}
-              }
-      tags:
-        - default
-
-  /srv1/call/sample:
-    post:
-      summary: Test Call
-      parameters:
-        - name: gw_addr
-          in: json
-          required: True
-          description: SIP-gateway IP or FQDN
-        - name: gw_login
-          in: json
-          required: True
-          description: User ID for SIP-gateway
-        - name: gw_password
-          in: json
-          required: True
-          description: User password for SIP-gateway
-        - name: phone_num
-          in: json
-          required: True
-          description: Phone number to call test
-      produces:
-        - application/text
-      responses:
-        '200':
-          description: OK
-          schema:
-            example: |
-              {
-              status: "success",
-              text: "OK"
               }
