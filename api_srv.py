@@ -55,6 +55,22 @@ def login_post(credentials: dict) -> dict:
     output_dict_ = {'status': 'fail',
                     'text': 'Unknown request'
                    }
+    try:
+        with Session(ENGINE) as s_:
+            login_ = credentials['login']
+            password_ = credentials['password']
+            user_ = s_.query(User).filter(User.login == login_).first()
+            if user_:
+                if user_.password == password_:
+                    # Обновление пользователя в базе
+                    # Возврат токенов
+                    pass
+                else:
+                    output_dict_['text'] = f'User {login_}: login failed'
+            else:
+                output_dict_['text'] = f'User {login_}: not exists'
+    except:
+        pass
     return json.dumps(output_dict_, ensure_ascii=False, indent=2)
 
 
