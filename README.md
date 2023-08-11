@@ -27,6 +27,11 @@ tools, such as `SQLAlchemy`, psycopg2, etc.
 2. Place solutions for different frameworks in different branches so that there
 is no confusion.
 
+3. Try to use `Swagger` in all cases, as an addition to possible self-made
+utilities for testing server from the client side.
+
+4. Implement OAuth2 authentication through a JSON Web Token.
+
 [:arrow_up: Contents](#contents)
 
 ----
