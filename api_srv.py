@@ -62,9 +62,22 @@ def login_post(credentials: dict) -> dict:
             user_ = s_.query(User).filter(User.login == login_).first()
             if user_:
                 if user_.password == password_:
+                    acc_token_ = str(uuid.uuid4())
+                    ref_token_ = str(uuid.uuid4())
                     # Обновление пользователя в базе
-                    # Возврат токенов
-                    pass
+                    user_.acc_token = acc_token_
+                    user_.ref_token = ref_token_
+                    user_.acc_expired = time() + ACC_TTL
+                    user_.ref_expired = time() + REF_TTL
+                    s_.add(user_)
+                    s_.commit()
+                    # Формирование ответа
+                    output_dict_['status'] = 'success'
+                    output_dict_['text'] = f'User {login_}: logged in'
+                    output_dict_['acc_token'] = acc_token_
+                    output_dict_['acc_expired'] = user_.acc_expired
+                    output_dict_['ref_token'] = ref_token_
+                    output_dict_['ref_expired'] = user_.ref_expired
                 else:
                     output_dict_['text'] = f'User {login_}: login failed'
             else:
