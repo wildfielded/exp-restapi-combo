@@ -19,6 +19,14 @@ REST API solutions with different frameworks
 
 ## Conditions ##
 
+1. Create a solving set for the initial stages of real or test tasks for REST
+API developing, using `Bottle`, `Flask`, `FastAPI` and other possible
+frameworks. Add variants with using `SQLite` and `PostgreSQL` DBMS and related
+tools, such as `SQLAlchemy`, psycopg2, etc.
+
+2. Place solutions for different frameworks in different branches so that there
+is no confusion.
+
 [:arrow_up: Contents](#contents)
 
 ----
