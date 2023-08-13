@@ -52,6 +52,7 @@ def login_post(credentials: dict) -> dict:
             "acc_expired", "ref_token", "ref_expired"
             или с ключами "status", "text" в случае ошибки
     '''
+    print('JSON=', credentials)
     output_dict_ = {'status': 'fail',
                     'text': 'Unknown request'
                    }

@@ -15,23 +15,30 @@ paths:
   /bottle/auth/login:
     post:
       summary: User login
-      parameters:
-        - name: login
-          in: json
-          required: True
-          description: User login
-        - name: password
-          in: json
-          required: True
-          description: User password
-      produces:
-        - application/text
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login:
+                  type: string
+                password:
+                  type: string
       responses:
         '200':
-          description: OK
-          schema:
-            example: |
-              {
-              status: "success",
-              text: "User user_login: logged in"
-              }
+          description: User login result
+          content:
+            application/json
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  text:
+                    type: string
+                    example: User login logged in
+        default:
+          description: Unexpected error
