@@ -1,5 +1,10 @@
 #!/usr/bin/puthon3
 
+import json
+
+import requests
+
+
 ''' =====----- Global variables -----===== '''
 
 
