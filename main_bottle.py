@@ -30,7 +30,7 @@ def server_root() -> str:
         return f_.read()
 
 
-@app.route('bottle/auth/login', method='POST')
+@app.route('/bottle/auth/login', method='POST')
 def login_post() -> dict:
     ''' Аутентификация на сервере
     '''

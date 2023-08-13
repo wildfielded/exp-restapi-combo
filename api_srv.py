@@ -82,8 +82,8 @@ def login_post(credentials: dict) -> dict:
                     output_dict_['text'] = f'User {login_}: login failed'
             else:
                 output_dict_['text'] = f'User {login_}: not exists'
-    except:
-        pass
+    except Exception as e_:
+        print(e_)
     return json.dumps(output_dict_, ensure_ascii=False, indent=2)
 
 
