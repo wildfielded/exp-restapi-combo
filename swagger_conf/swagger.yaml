@@ -12,33 +12,51 @@ tags:
     description: default tag
 
 paths:
-  /bottle/auth/login:
-    post:
-      summary: User login
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                login:
-                  type: string
-                password:
-                  type: string
+  /index:
+    get:
+      summary: Yet Another Index
+      produces:
+        - application/text
       responses:
         '200':
-          description: User login result
-          content:
-            application/json
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    example: success
-                  text:
-                    type: string
-                    example: User login logged in
-        default:
-          description: Unexpected error
+          description: OK
+          schema:
+            example: "Bulk Page"
+      tags:
+        - default
+
+
+
+
+
+
+#   /bottle/auth/login:
+#     post:
+#       summary: User login
+#       requestBody:
+#         required: true
+#         content:
+#           application/json:
+#             schema:
+#               type: object
+#               properties:
+#                 login:
+#                   type: string
+#                 password:
+#                   type: string
+#       responses:
+#         '200':
+#           description: User login result
+#           content:
+#             application/json
+#               schema:
+#                 type: object
+#                 properties:
+#                   status:
+#                     type: string
+#                     example: success
+#                   text:
+#                     type: string
+#                     example: User login logged in
+#         default:
+#           description: Unexpected error
