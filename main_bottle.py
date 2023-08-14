@@ -45,12 +45,14 @@ def server_root() -> str:
 def login_post() -> dict:
     ''' Аутентификация на сервере через метод POST
     '''
-    return api_.login_post(request.json)
+    return api_.login_getpost(request.json)
+
+
 @app.route('/bottle/auth/login', method='GET')
 def login_get() -> dict:
     ''' Аутентификация на сервере через метод GET
     '''
-    return api_.login_get(request.query)
+    return api_.login_getpost(dict(request.query))
 
 
 ''' =====----- MAIN -----===== '''
