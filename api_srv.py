@@ -88,4 +88,7 @@ def login_post(credentials: dict) -> dict:
     return json.dumps(output_dict_, ensure_ascii=False, indent=2)
 
 
+def login_get(credentials):
+    print(dict(credentials))
+
 #####=====----- THE END -----=====#########################################

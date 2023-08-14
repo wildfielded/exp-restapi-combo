@@ -43,9 +43,14 @@ def server_root() -> str:
 
 @app.route('/bottle/auth/login', method='POST')
 def login_post() -> dict:
-    ''' Аутентификация на сервере
+    ''' Аутентификация на сервере через метод POST
     '''
     return api_.login_post(request.json)
+@app.route('/bottle/auth/login', method='GET')
+def login_get() -> dict:
+    ''' Аутентификация на сервере через метод GET
+    '''
+    return api_.login_get(request.query)
 
 
 ''' =====----- MAIN -----===== '''
