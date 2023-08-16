@@ -67,35 +67,3 @@ paths:
                     "ref_token": "cd10b7ea-5127-486e-845c-334359ceaaa9",
                     "ref_expired": 1692024237.7405028
                   }
-
-
-#   /bottle/auth/login:
-#     post:
-#       summary: User login
-#       requestBody:
-#         required: true
-#         content:
-#           application/json:
-#             schema:
-#               type: object
-#               properties:
-#                 login:
-#                   type: string
-#                 password:
-#                   type: string
-#       responses:
-#         '200':
-#           description: User login result
-#           content:
-#             application/json
-#               schema:
-#                 type: object
-#                 properties:
-#                   status:
-#                     type: string
-#                     example: success
-#                   text:
-#                     type: string
-#                     example: User login logged in
-#         default:
-#           description: Unexpected error
