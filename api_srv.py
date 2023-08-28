@@ -54,6 +54,23 @@ def auth_decor(fn_to_be_decor):
             decoded_jwt_ = jwt.api_jwt.decode_complete(kwargs['req_data'],
                                                        key=JWT_KEY,
                                                        algorithms='HS256')
+            ##### header_ = decoded_jwt_['header']
+            ##### token_ = header_['acc_token']
+            token_ = decoded_jwt_['header']['acc_token']
+            payload_ = decoded_jwt_['payload']
+            try:
+                with Session(ENGINE) as s_:
+                    user_ = s_.query(User).filter(User.acc_token == token_).first()
+                try:
+                    if user_.expired > time():
+                        # Время действия токена не закончилось
+                        ok_ = True
+                except:
+                    # Токен закончился или его вообще нет
+                    ok_ = False
+            except:
+                # Что-то не так с БД
+                ok_ = False
         # Декорируемая функция
         result_ = fn_to_be_decor(auth_ok=ok_, payload=payload_, **kwargs)
         return result_
