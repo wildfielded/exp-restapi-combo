@@ -38,6 +38,17 @@ class User(Base):
 
 ''' =====----- Decorators -----===== '''
 
+def auth_decor(fn_to_be_decor):
+    '''
+    '''
+    def fn_wrapper(**kwargs):
+        ok_ = False
+        payload_ = dict()
+        # Декорируемая функция
+        result_ = fn_to_be_decor(auth_ok=ok_, payload=payload_, **kwargs)
+        return result_
+    return fn_wrapper
+
 
 ''' =====----- API Methods -----===== '''
 
