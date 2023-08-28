@@ -6,6 +6,7 @@ from time import time
 
 import sqlalchemy as sa
 from sqlalchemy.orm import declarative_base, Session
+import jwt
 
 
 ''' =====----- Global variables -----====='''
@@ -39,11 +40,20 @@ class User(Base):
 ''' =====----- Decorators -----===== '''
 
 def auth_decor(fn_to_be_decor):
-    '''
+    ''' Декоратор для функций, которые в именованном аргументе 'req_data'
+    получают данные в виде JSON Web Token.
+    Распаковывает JWT, проверяет по базе наличие действительного
+    access-tokena, по результату передаёт декорируемой функции
+    именованный аргумент 'auth_ok' [bool] и полезную нагрузку в
+    именованном аргументе 'payload'.
     '''
     def fn_wrapper(**kwargs):
         ok_ = False
         payload_ = dict()
+        if 'req_data' in kwargs.keys():
+            decoded_jwt_ = jwt.api_jwt.decode_complete(kwargs['req_data'],
+                                                       key=JWT_KEY,
+                                                       algorithms='HS256')
         # Декорируемая функция
         result_ = fn_to_be_decor(auth_ok=ok_, payload=payload_, **kwargs)
         return result_
