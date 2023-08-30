@@ -38,6 +38,8 @@ utilities for testing server from the client side.
 
 ## Solution ##
 
+**`main`**&nbsp;&mdash; branch with `Bottle`, `SQLite` и `SQLAlchemy`.
+
 [:arrow_up: Contents](#contents)
 
 ----
