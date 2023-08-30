@@ -37,6 +37,8 @@
 
 ## Решение ##
 
+**`main`**&nbsp;&mdash; ветка для `Bottle`, `SQLite` и `SQLAlchemy`.
+
 [:arrow_up: Содержание](#содержание)
 
 ----
