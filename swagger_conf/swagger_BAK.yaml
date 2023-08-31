@@ -33,5 +33,5 @@ paths:
             example: |
               {
               status: "success",
-              text: "User user_login: logged in"
+              text: "User _user_login_: logged in"
               }
