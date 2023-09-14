@@ -5,6 +5,9 @@ import api_srv as api_
 
 ''' =====----- Global variables -----====='''
 
+# Корневой index.html
+ROOT_INDEX = 'adds_srv/index.html'
+
 
 ''' =====----- Server resources -----===== '''
 
