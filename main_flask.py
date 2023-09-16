@@ -25,6 +25,17 @@ def server_root() -> str:
         return f_.read()
 
 
+@app.route('/index')
+def server_root() -> str:
+    ''' Дубль index.html для отработки Swagger
+    Returns:
+        [str] -- содержимое HTML-файла, заданного в глобальной
+            переменной ROOT_INDEX
+    '''
+    with open(ROOT_INDEX, 'r', encoding='utf-8') as f_:
+        return f_.read()
+
+
 ''' =====----- MAIN -----===== '''
 
 if __name__ == '__main__':
