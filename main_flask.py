@@ -36,6 +36,13 @@ def server_root() -> str:
         return f_.read()
 
 
+@app.route('/bottle/auth/login')
+def login_get() -> dict:
+    ''' Аутентификация на сервере через метод GET
+    '''
+    return api_.login_getpost(dict(request.query))
+
+
 ''' =====----- MAIN -----===== '''
 
 if __name__ == '__main__':
