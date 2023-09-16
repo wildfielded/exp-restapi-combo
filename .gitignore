@@ -1,9 +1,9 @@
 __pycache__/
 VENV*/
 venv*/
+jwt/
 *.ipynb
 .ipynb_checkpoints/
-test.py
 client_confidentials.py
 sqlite/*.sqlite3
 sqlite/sqlite3*
