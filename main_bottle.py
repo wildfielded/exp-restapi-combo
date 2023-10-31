@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+#####=====----- TEMPORAL for WinDev -----=====#####
+import sys
+sys.path.append('VENV\\Lib\\site-packages')
+###################################################
+
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 swagger_config_path = os.path.join(current_dir, 'swagger_conf/swagger.yaml')

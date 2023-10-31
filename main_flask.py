@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+#####=====----- TEMPORAL for WinDev -----=====#####
+import sys
+sys.path.append('VENV\\Lib\\site-packages')
+###################################################
+
 from flask import Flask
 
 import api_srv as api_
@@ -26,14 +31,13 @@ def server_root() -> str:
 
 
 @app.route('/index')
-def server_root() -> str:
+def server_index() -> str:
     ''' Дубль index.html для отработки Swagger
     Returns:
         [str] -- содержимое HTML-файла, заданного в глобальной
             переменной ROOT_INDEX
     '''
-    with open(ROOT_INDEX, 'r', encoding='utf-8') as f_:
-        return f_.read()
+    return server_root()
 
 
 @app.route('/bottle/auth/login')
