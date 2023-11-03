@@ -5,26 +5,26 @@ import sys
 sys.path.append('VENV\\Lib\\site-packages')
 ###################################################
 
-import os
-current_dir = os.path.dirname(os.path.abspath(__file__))
-swagger_config_path = os.path.join(current_dir, 'swagger_conf/swagger.yaml')
+# import os
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+# swagger_config_path = os.path.join(current_dir, 'swagger_conf/swagger.yaml')
 
 from bottle import Bottle, HTTPError, request, run
-from swagger_ui import bottle_api_doc
+# from swagger_ui import bottle_api_doc
 
-import api_srv as api_
+import srv_api as api_
 
 
 ''' =====----- Global variables -----====='''
 
-app = Bottle()
+srv = Bottle()
 # Корневой index.html
 ROOT_INDEX = 'adds_srv/index.html'
 
 
 ''' =====----- Server resources -----===== '''
 
-@app.route('/', method='GET')
+@srv.route('/', method='GET')
 def server_root() -> str:
     ''' Аналог index.html в ServerRoot для начальной страницы
     Returns:
@@ -35,7 +35,7 @@ def server_root() -> str:
         return f_.read()
 
 
-@app.route('/index', method='GET')
+@srv.route('/index', method='GET')
 def server_root() -> str:
     ''' Дубль index.html для отработки Swagger
     Returns:
@@ -46,14 +46,14 @@ def server_root() -> str:
         return f_.read()
 
 
-@app.route('/bottle/auth/login', method='POST')
+@srv.route('/srv/auth/login', method='POST')
 def login_post() -> dict:
     ''' Аутентификация на сервере через метод POST
     '''
     return api_.login_getpost(request.json)
 
 
-@app.route('/bottle/auth/login', method='GET')
+@srv.route('/srv/auth/login', method='GET')
 def login_get() -> dict:
     ''' Аутентификация на сервере через метод GET
     '''
@@ -63,12 +63,7 @@ def login_get() -> dict:
 ''' =====----- MAIN -----===== '''
 
 if __name__ == '__main__':
-    bottle_api_doc(app,
-                   config_path=swagger_config_path,
-                   url_prefix='/api/doc',
-                   title='Swagger docs'
-                  )
-    run(app,
+    run(srv,
         host='0.0.0.0',
         port=8080,
         debug=True
