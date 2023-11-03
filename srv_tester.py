@@ -40,9 +40,9 @@ def test_login_get(credentials: dict) -> str:
 
 if __name__ == '__main__':
     #####=====----- Тест / -----=====#####
-    print(test_root())
+    # print(test_root())
     #####=====----- Тест /index -----=====#####
-    # print(test_index())
+    print(test_index())
 
     '''
     from os import path

@@ -7,19 +7,19 @@ sys.path.append('VENV\\Lib\\site-packages')
 
 from flask import Flask
 
-import api_srv as api_
+import srv_api as api_
 
 
 ''' =====----- Global variables -----====='''
 
-app = Flask(__name__)
+srv = Flask(__name__)
 # Корневой index.html
 ROOT_INDEX = 'adds_srv/index.html'
 
 
 ''' =====----- Server resources -----===== '''
 
-@app.route('/')
+@srv.route('/')
 def server_root() -> str:
     ''' Аналог index.html в ServerRoot для начальной страницы
     Returns:
@@ -30,7 +30,7 @@ def server_root() -> str:
         return f_.read()
 
 
-@app.route('/index')
+@srv.route('/index')
 def server_index() -> str:
     ''' Дубль index.html для отработки Swagger
     Returns:
@@ -40,7 +40,7 @@ def server_index() -> str:
     return server_root()
 
 
-@app.route('/bottle/auth/login')
+@srv.route('/srv/auth/login')
 def login_get() -> dict:
     ''' Аутентификация на сервере через метод GET
     '''
@@ -50,7 +50,7 @@ def login_get() -> dict:
 ''' =====----- MAIN -----===== '''
 
 if __name__ == '__main__':
-    app.run(
+    srv.run(
         host='0.0.0.0',
         port=8080,
         debug=True
