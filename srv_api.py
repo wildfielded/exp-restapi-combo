@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+#####=====----- TEMPORAL for WinDev -----=====#####
+import sys
+sys.path.append('VENV\\Lib\\site-packages')
+###################################################
+
 import json
 import uuid
 from time import time

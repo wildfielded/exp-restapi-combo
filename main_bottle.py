@@ -1,16 +1,6 @@
 #!/usr/bin/python3
 
-#####=====----- TEMPORAL for WinDev -----=====#####
-import sys
-sys.path.append('VENV\\Lib\\site-packages')
-###################################################
-
-# import os
-# current_dir = os.path.dirname(os.path.abspath(__file__))
-# swagger_config_path = os.path.join(current_dir, 'swagger_conf/swagger.yaml')
-
 from bottle import Bottle, HTTPError, request, run
-# from swagger_ui import bottle_api_doc
 
 import srv_api as api_
 
@@ -63,10 +53,11 @@ def login_get() -> dict:
 ''' =====----- MAIN -----===== '''
 
 if __name__ == '__main__':
-    run(srv,
+    run(
+        srv,
         host='0.0.0.0',
         port=8080,
         debug=True
-       )
+    )
 
 #####=====----- THE END -----=====#########################################
