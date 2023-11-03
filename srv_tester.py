@@ -21,7 +21,7 @@ def test_root() -> str:
 
 # Проверка /index
 def test_index() -> str:
-    response_ = requests.get(f'http://{SRV_ADDR}/index')
+    response_ = requests.get(f'http://{SRV_ADDR}/index/')
     return response_.text
 
 
