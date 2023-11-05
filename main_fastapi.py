@@ -2,7 +2,7 @@
 
 #####=====----- TEMPORAL for WinDev -----=====#####
 import sys
-sys.path.append('FENV\\Lib\\site-packages')
+sys.path.append('VENV\\Lib\\site-packages')
 ###################################################
 
 from fastapi import FastAPI, responses
@@ -12,7 +12,7 @@ import uvicorn
 ''' =====----- Global variables -----====='''
 
 # Корневой index.html
-ROOT_INDEX = "index.html"
+ROOT_INDEX = "adds_srv/index.html"
 # ROOT_INDEX = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..\\adds_srv\\index.html')
 srv = FastAPI()
 
