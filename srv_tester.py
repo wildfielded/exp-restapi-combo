@@ -13,15 +13,9 @@ SRV_ADDR = '127.0.0.1:8080'
 
 ''' =====----- Functions -----===== '''
 
-# Проверка /
-def test_root() -> str:
-    response_ = requests.get(f'http://{SRV_ADDR}')
-    return response_.text
-
-
-# Проверка /index
-def test_index() -> str:
-    response_ = requests.get(f'http://{SRV_ADDR}/index/')
+# Проверка / и /index
+def test_index(path_: str='') -> str:
+    response_ = requests.get(f'http://{SRV_ADDR}' + path_)
     return response_.text
 
 
@@ -40,9 +34,9 @@ def test_login_get(credentials: dict) -> str:
 
 if __name__ == '__main__':
     #####=====----- Тест / -----=====#####
-    # print(test_root())
+    print(test_index(''))
     #####=====----- Тест /index -----=====#####
-    print(test_index())
+    print(test_index('/index'))
 
     '''
     from os import path
